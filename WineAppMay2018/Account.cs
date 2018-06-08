@@ -23,8 +23,9 @@ namespace WineAppMay2018
 		/// </summary>
 		public int CardNumber { get; set; }
 		//date the account was created, need to figure out just one date for that
-		public DateTime AcctCreationDate { get; set; }
+		//public DateTime AcctCreationDate { get; set; }
 		public DateTime DateOfOrder { get; set; }
+		public decimal OrderCost { get; set; }
 		//not sure how to do this yet - type of wine maybe with description, giftcards or baskets
 		public string InventoryDescription { get; set; } 
 		//number of bottles in inventory to order
@@ -37,6 +38,7 @@ namespace WineAppMay2018
 		public void Order(int amount)
 		{
 			Inventory -= amount;
+			
 
 		}
 

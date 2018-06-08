@@ -12,9 +12,9 @@ namespace WineAppMay2018
 		#region Properties
 
 		//not sure how to do this yet - type of wine maybe with description, giftcards or baskets
-		public string InventoryDescription { get; set; }
+		//public string InventoryDescription { get; set; }
 		//number of bottles in inventory to order
-		public int Inventory { get; set; }
+		//public int Inventory { get; set; }
 
 		#endregion
 
