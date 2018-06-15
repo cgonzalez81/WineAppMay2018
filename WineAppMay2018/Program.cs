@@ -10,19 +10,25 @@ namespace WineAppMay2018
 	{
 		static void Main(string[] args)
 		{
+			decimal OrderCost;
 			//refers to account class in account.cs
-			var account = new Account
-			{
-				LoginName = "Jesse123",
-				Password = "password1one",
-				InventoryDescription = "Malbec",
-				//OrderCost = "0",
+			var account = Store.CreateOrder("test@test.com", InventoryType.Barbera, 2, OrderCost = 10.05M);
+			Console.WriteLine($"EA: { account.EmailAddress}, " +
+				$"Inventory: { account.Inventory}, " +
+				$"OC: {account.OrderCost}, " +
+				$"ON: {account.OrderNumber}, " +
+				$"OI: {account.OrderInventory}, " +
+				$"DO: {account.DateOfOrder}");
+			//OrderCost = "0",
 
-		};
 
-			Console.WriteLine($"LN: {account.LoginName}, EA: {account.EmailAddress}, ID: {account.InventoryDescription}, OC: {account.OrderCost}");
-			
-			
+			var account2 = Store.CreateOrder("test2@test.com");
+			Console.WriteLine($"EA: {account2.EmailAddress}, : {account2.OrderCost}, OI: {account2.OrderInventory}, DO: {account2.DateOfOrder}");
+
+			var account3 = Store.CreateOrder("test2@test.com");
+			Console.WriteLine($"EA: {account3.EmailAddress}, : {account3.OrderCost}, OI: {account3.OrderInventory}, DO: {account3.DateOfOrder}");
+
+
 
 		}
 	}

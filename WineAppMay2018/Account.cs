@@ -6,14 +6,40 @@ using System.Threading.Tasks;
 
 namespace WineAppMay2018
 {
+	enum InventoryType
+	{
+		//Wine types, may include inventory number and descriptions
+		Barbera,
+		CabernetSauvignon,
+		Chardonnay,
+		Chianti,
+		Gewurtztraminer,
+		Malbec,
+		Merlot,
+		Moscato,
+		PinotGrigio,
+		PinotNoir,
+		Prosecco,
+		Riesling,
+		Rose,
+		SauvignonBlanc,
+		Shiraz,
+		Syrah,
+		Zinfandel,
+	}
+
+
 	class Account
 	{
 
+		private static int lastOrderNumber = 0000;
+		//app does not need acct number but maybe order number generated
+		//private static int lastAccountNumber = 0;
 		#region Properties
 		/// <summary>
 		/// AccountName can be email address
 		/// </summary>
-		public string LoginName { get; set; }
+		// not gonna use this: public string LoginName { get; set; }
 		public string Password { get; set; }
 		public int PhoneNumber { get; set; }
 		public string LicenseNumber { get; set; }
@@ -29,20 +55,25 @@ namespace WineAppMay2018
 		//not sure how to do this yet - type of wine maybe with description, giftcards or baskets
 		public string InventoryDescription { get; set; } 
 		//number of bottles in inventory to order
+		public int OrderNumber { get; set; }
 		public int Inventory { get; set; }
+		public InventoryType OrderInventory { get; set; }
 
 		#endregion
 
-		#region Methods
-
-		public void Order(int amount)
+		public Account()
 		{
-			Inventory -= amount;
-			
-
+			OrderNumber = ++lastOrderNumber;
+			DateOfOrder = DateTime.UtcNow;
 		}
 
-	
+		#region Methods
+
+		public int Order(int amount)
+		{
+			Inventory += amount;
+			return Inventory;
+		}
 
 		#endregion
 
