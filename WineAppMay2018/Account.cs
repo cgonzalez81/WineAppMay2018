@@ -41,8 +41,9 @@ namespace WineAppMay2018
 		/// </summary>
 		// not gonna use this: public string LoginName { get; set; }
 		public string Password { get; set; }
+		public string Address { get; set; }
 		public int PhoneNumber { get; set; }
-		public string LicenseNumber { get; set; }
+		public int BirthYear { get; set; }
 		public string EmailAddress { get; set; }
 		/// <summary>
 		/// Debit or credit card to use for purchases
@@ -73,6 +74,12 @@ namespace WineAppMay2018
 		{
 			Inventory += amount;
 			return Inventory;
+		}
+
+		public decimal Price (decimal amount)
+		{
+			OrderCost += amount;
+			return OrderCost;
 		}
 
 		#endregion
