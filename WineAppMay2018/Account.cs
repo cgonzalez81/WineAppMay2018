@@ -40,7 +40,7 @@ namespace WineAppMay2018
 		/// AccountName can be email address
 		/// </summary>
 		// not gonna use this: public string LoginName { get; set; }
-		public string Password { get; set; }
+		//public string Password { get; set; }
 		public string Address { get; set; }
 		public int PhoneNumber { get; set; }
 		public int BirthYear { get; set; }
@@ -54,9 +54,9 @@ namespace WineAppMay2018
 		public DateTime DateOfOrder { get; set; }
 		public decimal OrderCost { get; set; }
 		//not sure how to do this yet - type of wine maybe with description, giftcards or baskets
-		public string InventoryDescription { get; set; } 
+		//public string InventoryDescription { get; set; } 
 		//number of bottles in inventory to order
-		public int OrderNumber { get; set; }
+		//public int OrderNumber { get; set; }
 		public int Inventory { get; set; }
 		public InventoryType OrderInventory { get; set; }
 

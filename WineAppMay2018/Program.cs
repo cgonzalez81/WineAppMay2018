@@ -18,10 +18,12 @@ namespace WineAppMay2018
 				Console.WriteLine("0. Exit");
 				//acct should include address, phone#, email
 				Console.WriteLine("1. Create an account");
-				Console.WriteLine("2. Orders");
-				Console.WriteLine("3. Get the Total");
-				Console.WriteLine("4. Enter Payment");
-				Console.Write("Order confirmation: ");
+				Console.WriteLine("2. Order a bottle");
+				Console.WriteLine("3. Number of bottles selected");
+				//needs something that asks for address, age, and PN
+				Console.WriteLine("4. Get the Total");
+				Console.WriteLine("5. Enter Payment");
+				Console.Write("See all orders: ");
 				//maybe a line for delivery date
 				var option = Console.ReadLine();
 				switch (option)
@@ -47,8 +49,8 @@ namespace WineAppMay2018
 						Console.Write("Initial Deposit: ");
 						var amount = Convert.ToDecimal(Console.ReadLine());
 
-						var account = Store.CreateOrder(emailAddress, inventoryType, amount);
-						Console.WriteLine($"AN: {account.AccountNumber}, " +
+						var account = Store.CreateOrder(emailAddress, address, age, phoneNumber, inventoryType, amount);
+						Console.WriteLine($"EA: {account.EmailAddress}, " +
 							$"Balance: {account.Balance}, " +
 							$"AT: {account.TypeOfAccount}, " +
 							$"CD: {account.CreatedDate}");
