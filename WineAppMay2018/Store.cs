@@ -9,13 +9,16 @@ namespace WineAppMay2018
 	static class Store
 	
 	{
+		private static List<Account> accounts = new List<Account>();
 		public static Account CreateOrder(string emailAddress, 
 			string address,
 			string phoneNumber,
-			DateTimeKind birthYear,
+			string birthYear,
+			int inventory,
+			string cardNumber,
 			InventoryType orderInventory=InventoryType.Barbera,
 			int initialOrder =0,
-			decimal orderCost = 0)
+			decimal orderCost = 10)
 
 		{
 			var order = new Account
@@ -24,16 +27,33 @@ namespace WineAppMay2018
 				OrderInventory = orderInventory,
 				OrderCost = orderCost,
 				BirthYear = birthYear,
-				Address = address1,
-				PhoneNumber = phoneNumber
+				Address = address,
+				PhoneNumber = phoneNumber,
+				Inventory = inventory,
+				CardNumber = cardNumber
 
 			};
 			if (initialOrder > 0)
 			{
 				order.Order(initialOrder);
 			}
+
+			
 			return order;
 		
+		}
+
+		public static IEnumerable<Account>
+			GetAllAccountsByEmailAddress(string emailAddress)
+
+		{
+			return accounts.Where(a => a.EmailAddress == emailAddress);
+		}
+
+		public static void Deposit(int accountNumber, decimal amount)
+
+		{
+			accounts.Where(a => a.AccountNumber == accountNumber)
 		}
 
 	}
